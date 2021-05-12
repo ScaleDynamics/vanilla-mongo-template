@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/app.css" />
+    <title>ScaleDynamics Platform - Vanilla</title>
+  </head>
+  <body>
+    <script src="https://cdn.scaledynamics.com/warp-engine/4.0.7/engine-web-prod.js"></script>
+    <script src="./.backend/backend.js"></script>
+    <script>
+      // init module client
+      const { hello, fetchMovies } = new backend();
+
+      // call module function
+      hello().then((msg) => {
+        document.getElementById('message').innerHTML = msg;
+      });
+
+      // fetchMovies from mongodb
+      fetchMovies('Star Trek').then((data) => console.log(data));
+    </script>
+    <div class="app">
+      <img src="./assets/logo.png" class="sd-logo" alt="ScaleDynamics" />
+      <div class="hello">
+        <h3 id="message"></h3>
+        <span>
+          Learn about
+          <a href="https://docs.scaledynamics.com/docs/" target="_blank" rel="noreferrer"> ScaleDynamics Platform</a>
+          and
+          <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> ReactJS </a>
+        </span>
+      </div>
+
+      <div class="mongodb">
+        <span>
+          You can see
+          <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">mongodb</a>
+          in action in your dev console >
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
