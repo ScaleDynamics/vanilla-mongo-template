@@ -1,4 +1,4 @@
 module.exports = {
   hosting: 'vanilla-app',
-  public: '/src',
+  public: './src',
 };
