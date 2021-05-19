@@ -19,26 +19,41 @@
       });
 
       // fetchMovies from mongodb
-      fetchMovies('Star Trek').then((data) => console.log(data));
+      fetchMovies('Star Trek').then((data) => {
+        document.getElementById('movies').innerHTML = JSON.stringify(
+          data,
+          null,
+          2
+        );
+      });
     </script>
     <div class="app">
       <img src="./assets/logo.png" class="sd-logo" alt="ScaleDynamics" />
-      <div class="hello">
+      <div class="hello centered">
         <h3 id="message"></h3>
         <span>
           Learn about
-          <a href="https://docs.scaledynamics.com/docs/" target="_blank" rel="noreferrer"> ScaleDynamics Platform</a>
+          <a
+            href="https://docs.scaledynamics.com/docs/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            ScaleDynamics Platform</a
+          >
           and
-          <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> ReactJS </a>
+          <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+            ReactJS
+          </a>
         </span>
       </div>
 
-      <div class="mongodb">
-        <span>
-          You can see
-          <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">mongodb</a>
-          in action in your dev console >
-        </span>
+      <div class="mongodb centered">
+        <div class="centered">
+          <span><a href="https://www.mongodb.com/">MongoDB</a> in action</span>
+        </div>
+        <div class="results">
+          <pre id="movies"></pre>
+        </div>
       </div>
     </div>
   </body>
