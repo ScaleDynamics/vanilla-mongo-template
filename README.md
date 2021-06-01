@@ -91,7 +91,10 @@ To access your new functions on the frontend side, you can import your back in a
 ```html
 <script src="./.backend/backend.js"></script>
 <script>
-  const { myFunction } = new backend();
+  // load the last version of the engine
+  backend.loadEngine().then(() => {
+    const { myFunction } = new backend();
+  }
 </script>
 ```
 ## Documentation
