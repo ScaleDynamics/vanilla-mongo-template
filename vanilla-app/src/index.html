@@ -7,24 +7,25 @@
     <title>ScaleDynamics Platform - Vanilla</title>
   </head>
   <body>
-    <script src="https://cdn.scaledynamics.com/warp-engine/4.0.7/engine-web-prod.js"></script>
     <script src="./.backend/backend.js"></script>
     <script>
-      // init module client
-      const { hello, fetchMovies } = new backend();
+      backend.loadEngine().then(() => {
+        // init module client
+        const { hello, fetchMovies } = new backend();
 
-      // call module function
-      hello().then((msg) => {
-        document.getElementById('message').innerHTML = msg;
-      });
+        // call module function
+        hello().then((msg) => {
+          document.getElementById('message').innerHTML = msg;
+        });
 
-      // fetchMovies from mongodb
-      fetchMovies('Star Trek').then((data) => {
-        document.getElementById('movies').innerHTML = JSON.stringify(
-          data,
-          null,
-          2
-        );
+        // fetchMovies from mongodb
+        fetchMovies('Star Trek').then((data) => {
+          document.getElementById('movies').innerHTML = JSON.stringify(
+            data,
+            null,
+            2
+          );
+        });
       });
     </script>
     <div class="app">
